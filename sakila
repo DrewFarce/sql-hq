@@ -1,0 +1,20 @@
+use sakila;
+select*from actor;
+ select first_name, last_name from actor;
+ select first_name, last_name, concat(first_name,' ',last_name) AS ActorName from actor;
+select*from actor where first_name='Joe';
+select*from actor where last_name='Gen%';
+ select*from actor where last_name like'%li%',
+order by last_name, first_name asc;
+select*from country
+where country in ('Afghanistan','Bangladesh','China');
+ALTER TABLE actor
+DROP COLUMN last_update, 
+DROP COLUMN last_name,
+ADD middle_name text,
+add last_name text;
+ALTER TABLE actor MODIFY COLUMN middle_name blob;
+ALTER TABLE actor drop column middle_name;
+select last_name as 'Column Name', data_type as text,
+character_maximum_length as 'Max Length'
+from actor.last_name;
